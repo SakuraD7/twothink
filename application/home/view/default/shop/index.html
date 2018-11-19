@@ -1,0 +1,35 @@
+{extend name="base/bootstrap"/}
+{block name="body"}
+<div class="main">
+    <!-- Contents
+    ================================================== -->
+    <section id="contents">
+        {article:list name="article" category="45" child="true"}
+        <div class="row">
+            <div class="container-fluid">
+                <div class="row noticeList">
+                    <a href="notice-detail.html">
+                        <div class="col-xs-2">
+                            <a href="{:url('Shop/detail?id='.$article['id'])}">
+                                <img class="noticeImg" src="__ROOT__{$article.cover_id|get_cover_path}"  />
+                            </a>
+                        </div>
+                        <a href="{:url('Shop/detail?id='.$article['id'])}">
+                        <div class="col-xs-10">
+                            <p class="title">{$article.title}</p>
+                            <p class="intro">{$article.description}</p>
+                            <p class="info">浏览: {$article.view}
+                                <span class="pull-right">
+                                    {$article.create_time|date='Y-m-d H:i',###}
+                                </span>
+                            </p>
+                        </div>
+                        </a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {/article:list}
+    </section>
+</div>
+{/block}

@@ -1,0 +1,45 @@
+{extend name="base/bootstrap" /}
+
+{block name="body"}
+
+<div class="main-title">
+	<h2>在线报修</h2>
+</div>
+<div class="main">
+<div class="container-fluid">
+	<form action="{:url()}" method="post" class="form-horizontal">
+		<div class="form-group">
+			<label>报修原因</label>
+			<input type="text" class="form-control" name="reason"/>
+		</div>
+		<div class="form-group">
+			<label>用户名</label>
+			<input type="text" class="form-control" name="name"/>
+		</div>
+		<div class="form-group">
+			<label>联系方式</label>
+			<input type="text" class="form-control" name="tel"/>
+		</div>
+		<div class="form-group">
+			<label >地址</label>
+			<input type="text" class="form-control" name="address"/>
+		</div>
+		<div class="form-group">
+			<label>报修详情</label>
+			<textarea type="text" class="form-control" name="contents"></textarea>
+		</div>
+		<div class="form-item">
+			<input type="hidden" name="id" value="{$info.id|default=''}">
+			<button class="btn submit-btn ajax-posts" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
+</div>
+</div>
+{/block}
+{block name="script"}
+<script type="text/javascript" charset="utf-8">
+	//导航高亮
+//	highlight_subnav('{:url('index')}');
+</script>
+{/block}
